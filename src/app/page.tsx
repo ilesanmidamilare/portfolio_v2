@@ -1,103 +1,237 @@
+"use client";
+
 import Image from "next/image";
+import Logo from '../../public/assets/logos/logo.svg'
+import Twitter from "../../public/assets/logos/twitter.svg"
+import Instagram from "../../public/assets/logos/instagram.svg"
+import Linkedin from "../../public/assets/logos/linkedin.svg"
+import ForwardIcon from "../../public/assets/forwardicon.svg"
+import Dropdown from "./components/Dropdown";
+import { useState  } from "react";
 
 export default function Home() {
+  const [dropDown, setDropDown] = useState(false);
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  
+    // <div className="h-[100dvh] w-screen  flex flex-col gap-30  items-center pl-10 pr-10 pt-10">
+    //   {/* bg-gradient-to-r from-blue-500 to-indigo-700 */}
+      
+    //   {/* fixed top-0 left-1/2 transform -translate-x-1/2 */}
+      
+    //   <header className=" w-full flex lg:max-w-480 ">
+    //   {/* lg:max-w-480 mx-auto */}
+    //     <Image
+    //         src={Logo}
+    //         width={30}
+    //         height={30}
+    //         alt="damilare ilesanmi logo"
+    //       />
+    //       <div  className="flex place-items-center ml-auto gap-41 ">
+    //           <div className="hidden lg:flex place-items-center gap-6">
+    //             <div className='font-bold text-black text-2xl'>Scroll To Navigate</div>
+    //             <div className='flex'>
+    //               <div className=' h-6 w-3 bg-gray-500 rounded-l-full'/>
+    //               <div className=' h-6 w-3 bg-black rounded-r-full'/>
+    //             </div>
+    //           </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    //           <div className='flex flex-col gap-1 place-items-center '>
+    //             <div className='w-10 h-0.5 bg-black'/>
+    //             <div className='w-8 h-0.5 bg-black'/>
+    //             <div className='w-10 h-0.5 bg-black'/>
+    //           </div>
+    //       </div>
+    //   </header>
+
+    //    <main className="flex flex-col flex-1 max-w-480">
+    //     <div className="font-black   
+    //         text-[clamp(28px,calc(28px+92*((100vw-320px)/(1280-320))),120px)]
+    //         xl:text-[clamp(120px,calc(120px+64*((100vw-1280px)/(1920-1280))),184px)]
+    //         leading-[0.8]
+    //         w-full
+    //         whitespace-nowrap
+    //         -mb-12
+    //         z-10
+    //     ">
+    //       <div>Software</div>
+    //       <div>Engineer & Designer</div>
+    //     </div>
+
+    //     <div className="flex h-full gap-8" >
+    //       <div className="self-end mb-25 w-10">
+    //         <Image
+    //             src={Twitter}
+    //             // width={30}
+    //             // height={30}
+    //             alt="Twitter logo"
+    //             
+    //           />
+    //           <Image
+    //             src={Linkedin}
+    //             // width={30}
+    //             // height={30}
+    //             alt="linkedin logo"
+    //             className="mb-6"
+    //           />
+    //           <Image
+    //             src={Instagram}
+    //             // width={30}
+    //             // height={30}
+    //             alt="Instagram logo"
+    //           />
+    //       </div>
+
+    //       <div>
+    //         <div className="w-5xl h-full  ml-20 relative">
+    //           <div className="bg-gray-400 h-full w-5/7"></div>
+    //           <div className="h-80 w-100 bg-black absolute top-1/2 right-0 -translate-y-1/2  z-20"></div>
+    //         </div>
+    //       </div>
+
+    //       <div className="self-end mb-25">
+    //         <div className="mb-6 text-2xl">
+    //           Hi, My name is <span className="font-black">Damilare Ilesanmi</span> . I am frontend developer, UX architect, and JavaScript engineer. I build scalable web and mobile application.
+    //         </div>
+    //         <div className="flex gap-6">
+    //           <div className="text-2xl">See more <span className="font-black ">About Me</span> </div>
+    //           <Image
+    //             src={ForwardIcon}
+    //             alt="Forward Icon"
+    //           />
+    //         </div>
+    //       </div>
+    //     </div>
+    //    </main>
+    // </div>
+    <div className=" h-[100dvh] w-screen p-4 relative  flex ">
+
+      {/* //Just a container */}
+      <div className="flex flex-col gap-10 w-full">
+        <header className="flex">
+          <Image
+              src={Logo}
+              width={30}
+              height={30}
+              alt="damilare ilesanmi logo"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <div  className="flex place-items-center ml-auto gap-41 ">
+
+                {/* scroll an theme */}
+                <div className="hidden lg:flex place-items-center gap-6">
+                  <div className='font-bold text-black text-2xl'>Scroll To Navigate</div>
+                  <div className='flex'>
+                    <div className=' h-6 w-3 bg-gray-500 rounded-l-full'/>
+                    <div className=' h-6 w-3 bg-black rounded-r-full'/>
+                  </div>
+                </div>
+
+
+                <div className="">
+                  <div
+                    className='flex flex-col gap-1 place-items-center relative'
+                    onClick={() => setDropDown(prev => !prev)}
+                    
+                  >
+                    <div className= { dropDown ? 'w-10 h-0.5 bg-blue-500' :'w-10 h-0.5 bg-black'}/>
+                    <div className={ dropDown ? 'w-8 h-0.5 bg-red-500' :'w-8 h-0.5 bg-black'}/>
+                    <div className={ dropDown ? 'w-10 h-0.5 bg-red-500' :'w-10 h-0.5 bg-black'}/>
+                  </div>
+                </div>
+                
+            </div>
+        </header>
+
+        {
+          dropDown && 
+          <div className="absolute w-full h-full bg-gray-300 top-0, left-0 right-0 bottom-0 p-4 gap-10 ">
+            <header className="flex">
+                <div className='flex'>
+                  <div className=' h-7.5 w-4 bg-gray-500 rounded-l-full'/>
+                  <div className=' h-7.5 w-4 bg-black rounded-r-full'/>
+                </div>
+
+                <div  className="flex place-items-center ml-auto gap-41 ">
+                  <div
+                    className='flex flex-col gap-1 place-items-center relative'
+                    onClick={() => setDropDown(prev => !prev)}
+                  >
+                    <div className= { dropDown ? 'w-10 h-0.5 bg-black' :'w-10 h-0.5 bg-black'}/>
+                    <div className={ dropDown ? 'w-8 h-0.5 bg-black' :'w-8 h-0.5 bg-black'}/>
+                    <div className={ dropDown ? 'w-10 h-0.5 bg-black' :'w-10 h-0.5 bg-black'}/>
+                  </div>
+                </div>
+            </header>
+
+            <div className="text-5xl font-black flex flex-col items-center gap-6">
+              <div>Home</div>
+              <div>About me</div>
+              <div>Projects</div>
+              <div>Contact</div>
+              <div>Resume</div>
+            </div>
+
+            <div className="flex justify-between text-2xl flex-1 items-end font-bold">
+              <div>Linkedin</div>
+              <div>Email</div>
+              <div>Github</div>
+            </div>
+          </div>
+        }
+        
+          {/* <div className="font-black   
+                text-[clamp(28px,calc(28px+92*((100vw-320px)/(1280-320))),120px)]
+                xl:text-[clamp(120px,calc(120px+64*((100vw-1280px)/(1920-1280))),184px)]
+                leading-[0.8]
+                w-full
+                whitespace-nowrap
+                z-10
+            ">
+              <div>Software</div>
+              <div>Engineer & Designer</div>
+          </div> */}
+
+          <div className="">
+            
+              <div className=" bg-amber-900 ">
+
+              </div>
+           
+            
+
+            <div className="flex gap-6">
+              <div className="text-xl">See more <span className="font-black ">About Me</span> </div>
+              <Image
+                src={ForwardIcon}
+                alt="Forward Icon"
+              />
+            </div>
+          </div>
+
+           <div className=" flex-1 flex items-end justify-between">
+              <Image
+                src={Twitter}
+                width={20}
+                height={20}
+                alt="Twitter logo"
+                
+              />
+              <Image
+                src={Linkedin}
+                width={20}
+                height={20}
+                alt="linkedin logo"
+                
+              />
+              <Image
+                src={Instagram}
+                width={20}
+                height={20}
+                alt="Instagram logo"
+                />
+          </div>
+      </div>
     </div>
   );
 }
+
+
