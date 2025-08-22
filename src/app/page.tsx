@@ -12,7 +12,7 @@ import { useState  } from "react";
 export default function Home() {
   const [dropDown, setDropDown] = useState(false);
   return (
-    <div className="p-4 h-[100dvh] w-screen relative  flex lg:pl-10 lg:pr-10 lg:pt-10">
+    <div className="p-4 h-[100dvh] w-screen relative  flex lg:pl-10 lg:pr-10 lg:pt-10 justify-center">
 
       {/* //Just a container */}
       <div className="flex flex-col w-full max-w-480">
