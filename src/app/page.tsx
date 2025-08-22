@@ -143,7 +143,7 @@ export default function Home() {
 
         {
           dropDown && 
-          <div className="absolute w-full h-full bg-gray-300 top-0, left-0 right-0 bottom-0 p-4 gap-10 ">
+          <div className="absolute w-full h-full bg-gray-300 top-0, left-0 right-0 bottom-0 p-4 gap-10 z-20">
             <header className="flex">
                 <div className='flex'>
                   <div className=' h-7.5 w-4 bg-gray-500 rounded-l-full'/>
@@ -190,15 +190,11 @@ export default function Home() {
               <div>Engineer & Designer</div>
           </div> */}
 
-          <div className="">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full m-auto max-w-[400px] p-4">
             
-              <div className=" bg-amber-900 ">
-
-              </div>
+            <div className=" bg-amber-900 w-full aspect-square "/>
            
-            
-
-            <div className="flex gap-6">
+            <div className="flex gap-6 mt-4">
               <div className="text-xl">See more <span className="font-black ">About Me</span> </div>
               <Image
                 src={ForwardIcon}
@@ -207,7 +203,7 @@ export default function Home() {
             </div>
           </div>
 
-           <div className=" flex-1 flex items-end justify-between">
+           <div className=" flex-1 flex items-end justify-around">
               <Image
                 src={Twitter}
                 width={20}
