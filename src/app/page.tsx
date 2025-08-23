@@ -5,6 +5,7 @@ import Logo from "../../public/assets/svgs/Logo"
 import { Twitter } from 'lucide-react';
 import { Linkedin } from 'lucide-react';
 import { Instagram } from "lucide-react";
+import { MoveRight } from 'lucide-react';
 
 
 export default function Home() {
@@ -30,10 +31,23 @@ export default function Home() {
   }, [theme]);
 
   return (
-   <div className="h-[100dvh] w-screen flex justify-center ">
-      
+   <div className="h-[100dvh] w-screen flex justify-center">
+
+      {/* background design */}
+      <div
+          aria-hidden='true'
+          className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+          <div
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+            className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
+          />
+      </div>
+
       {/* //wrapper for the whole page */}
-      <div className=" h-full max-w-480 w-full p-4 lg:p-8">
+      <div className=" h-full max-w-480 w-full p-4  lg:p-8 flex flex-col">
 
         {/* //header */}
         <header className="flex justify-between items-center  h-6">
@@ -100,14 +114,92 @@ export default function Home() {
             </div>
 
             <div className=" flex-1 flex items-end justify-around lg:justify-around">
-                <Twitter className="dark:text-brand-50" size={48} />
-                <Linkedin className="dark:text-brand-50" size={48}/>
-                <Instagram  className="dark:text-brand-50" size={48}/>
+                <Twitter className="dark:text-brand-50 cursor-pointer" size={48} />
+                <Linkedin className="dark:text-brand-50 cursor-pointer" size={48}/>
+                <Instagram  className="dark:text-brand-50 cursor-pointer" size={48}/>
             </div>
           </div>
         }
 
+        {/* //mobile */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full m-auto max-w-[400px] p-4 lg:hidden">
+            
+            <div className=" bg-brand-500 w-full aspect-square "/>
+           
+            <div className="flex gap-6 mt-4">
+              <div className="text-xl">See more <span className="font-black ">About Me</span> </div>
+              <MoveRight className="dark:text-brand-50 " size={32}/>
+            </div>
+          </div>
 
+          <div className="flex-1 flex items-end justify-around lg:hidden ">
+            <Twitter className="dark:text-brand-50 cursor-pointer" size={32} />
+            <Linkedin className="dark:text-brand-50 cursor-pointer" size={32}/>
+            <Instagram  className="dark:text-brand-50 cursor-pointer" size={32}/>
+          </div>
+
+          {/* //Large Desktop */}
+          <div className="relative w-full h-full hidden lg:flex ">
+              {/* Background box */}
+              <div className="w-full h-1/2 absolute bottom-0 left-0 flex">
+                <div className=" h-full w-1/15 relative">
+                  <div className=" h-5/7 w-full absolute top-1/2 right-0 -translate-y-1/2 flex flex-col justify-end gap-6">
+                    <Twitter className="dark:text-brand-50 cursor-pointer" size={24} />
+                    <Linkedin className="dark:text-brand-50 cursor-pointer" size={24}/>
+                    <Instagram  className="dark:text-brand-50 cursor-pointer" size={24}/>
+                  </div>
+                  
+                </div>
+                
+                <div className="flex-[2] relative">
+                  <div className="bg-brand-700 h-full w-1/2"></div>
+                  <div className=" h-5/7 w-3/5 absolute top-1/2 right-0 -translate-y-1/2  z-20 flex gap-6">
+                    <div className="bg-brand-400 w-1/2 h-full"></div>
+
+                    {/* second div */}
+                    <div className="w-1/2 h-full flex flex-col justify-end gap-6">
+                     
+                      <div className="text-[16px]">
+                        Hi, My  name is <span className="font-black">Damilare Ilesanmi</span>. I am frontend developer, UX architect, and JavaScript engineer. I build scalable web and mobile application.
+                      </div>
+                      <div className="flex gap-6 items-center">
+                        <div className="text-[16px]">See more <button className="font-black cursor-pointer">About Me</button> </div>
+                        <MoveRight className="dark:text-brand-50 " size={32}/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+               
+              </div>
+
+              <div className="
+                  w-full h-1/2 absolute 
+                  top-1/2 left-1/2 
+                  -translate-x-1/2 -translate-y-5/5
+                  z-20 
+                  sm:mt-4      /* adjust overlap on small */
+                  md:mt-8     /* adjust overlap on medium */
+                  lg:mt-8    /* adjust overlap on large */
+                "
+              >
+                <div className="font-black   
+                  flex
+                  flex-col
+                  text-nowrap
+                  absolute
+                  justify-end
+                  w-full
+                  h-full
+                  text-[clamp(28px,calc(28px+92*((100vw-320px)/(1280-320))),120px)]
+                  xl:text-[clamp(120px,calc(120px+64*((100vw-1280px)/(1920-1280))),184px)]
+                  leading-[0.8]
+                ">
+                  <div className="">Software</div>
+                  <div className="">Engineer & Designer</div>
+                </div>
+              </div>
+          </div>
       </div>
    </div>
   );
