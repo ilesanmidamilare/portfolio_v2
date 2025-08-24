@@ -50,3 +50,15 @@
   }
 }
 
+.scrollbar-hide-y::-webkit-scrollbar {
+  width: 0px;
+  /* Chrome, Safari */
+}
+
+.scrollbar-hide-y {
+  -ms-overflow-style: none;
+  /* IE & Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
