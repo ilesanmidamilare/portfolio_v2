@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <header className="flex justify-between items-center  h-6">
-      <div
+      {/* <div
           aria-hidden='true'
           className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
           <div
@@ -50,7 +50,7 @@ export default function Home() {
             }}
             className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
           />
-      </div>
+      </div> */}
       <Logo className='w-6 h-6 text-brand-900 dark:text-brand-50 cursor-pointer'/>
 
       {/* //Wrapper (scroll nav, theme-changer & menu) */}
@@ -58,7 +58,7 @@ export default function Home() {
         {/* //Scroll navigation and theme-Changer */}
         { pathname === '/' && 
         <div className=" gap-4 mr-auto hidden lg:flex ">
-          <div className="font-bold">Scroll To Navigate</div>
+          <div className="font-bold text-[16px]">Scroll To Navigate</div>
           <button 
             className="flex cursor-pointer"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -74,9 +74,9 @@ export default function Home() {
             className='flex flex-col gap-1 items-end hover:bg-amber-400 cursor-pointer'
             onClick={() => setDropDown(prev => !prev)}
           >
-            <div className= {'w-8 h-0.5 bg-brand-900 dark:bg-brand-50'}/>
-            <div className={ 'w-12 h-0.5 bg-brand-900 dark:bg-brand-50'}/>
-            <div className={'w-6 h-0.5 bg-brand-900 dark:bg-brand-50'}/>
+            <div className= {'w-7 h-0.5 bg-brand-900 dark:bg-brand-50'}/>
+            <div className={ 'w-10 h-0.5 bg-brand-900 dark:bg-brand-50'}/>
+            <div className={'w-4 h-0.5 bg-brand-900 dark:bg-brand-50'}/>
           </button>
 
           {
